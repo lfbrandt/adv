@@ -37,6 +37,14 @@ Thumbs.db
 .vercel
 
 # --------------------------------------------------
+# AI / development instructions
+# Keep locally, but do not commit to the repository.
+# --------------------------------------------------
+
+/AGENTS.md
+/CLAUDE.md
+
+# --------------------------------------------------
 # Client source materials
 # Original files supplied by the client.
 # Keep locally, but do not commit to the repository.
