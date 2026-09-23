@@ -1,0 +1,19 @@
+@use "sass:map";
+
+$breakpoints: (
+  tablet: 48rem,
+  desktop: 64rem,
+  wide: 80rem,
+);
+
+@mixin from($name) {
+  $value: map.get($breakpoints, $name);
+
+  @if $value == null {
+    @error "Breakpoint `#{$name}` não definido.";
+  }
+
+  @media (min-width: $value) {
+    @content;
+  }
+}

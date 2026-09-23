@@ -1,0 +1,49 @@
+# Dependencies
+/node_modules
+/.pnp
+.pnp.*
+
+# Next.js
+/.next/
+/out/
+
+# Production
+/build
+
+# Local environment files
+.env*
+!.env.example
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Tests and tooling
+/coverage
+*.tsbuildinfo
+next-env.d.ts
+
+# Operating systems and editors
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Hosting
+.vercel
+
+# --------------------------------------------------
+# Client source materials
+# Original files supplied by the client.
+# Keep locally, but do not commit to the repository.
+# Root-only rules intentionally avoid ignoring
+# production assets inside /public.
+# --------------------------------------------------
+
+/*.docx
+/*.pdf
+/Cópia de logo_fundo_azul.jpg

@@ -1,0 +1,145 @@
+@use "../abstracts/breakpoints";
+
+.practice-areas {
+  background-color: var(--color-white);
+  color: var(--color-primary);
+}
+
+.practice-areas__container {
+  padding-block: clamp(5rem, 9vw, 8rem);
+}
+
+.practice-areas__header {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+.practice-areas__title {
+  margin-top: var(--space-lg);
+  font-size: clamp(2.625rem, 9vw, 4.5rem);
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+}
+
+.practice-areas__introduction {
+  max-width: 39rem;
+  color: color-mix(
+    in srgb,
+    var(--color-primary) 86%,
+    var(--color-neutral)
+  );
+  font-family: var(--font-secondary);
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  line-height: 1.75;
+}
+
+.practice-areas__grid {
+  display: grid;
+  margin-top: clamp(var(--space-2xl), 6vw, var(--space-3xl));
+}
+
+.practice-area {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding-block: clamp(var(--space-xl), 7vw, var(--space-2xl));
+  border-top: 0.0625rem solid
+    color-mix(in srgb, var(--color-primary) 22%, transparent);
+}
+
+.practice-area__title {
+  margin-top: var(--space-sm);
+  font-size: clamp(1.25rem, 5vw, 1.5rem);
+  letter-spacing: 0.035em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.practice-area__description {
+  margin-top: var(--space-md);
+  color: color-mix(
+    in srgb,
+    var(--color-primary) 82%,
+    var(--color-neutral)
+  );
+  font-family: var(--font-secondary);
+  font-size: 0.975rem;
+  line-height: 1.72;
+}
+
+@include breakpoints.from(tablet) {
+  .practice-areas__header {
+    grid-template-columns: minmax(0, 0.9fr) minmax(20rem, 1.1fr);
+    gap: clamp(var(--space-xl), 7vw, var(--space-3xl));
+    align-items: start;
+  }
+
+  .practice-areas__introduction {
+    margin-top: calc(var(--space-lg) + 1.05rem);
+  }
+
+  .practice-areas__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .practice-area:nth-child(odd) {
+    padding-right: clamp(var(--space-lg), 4vw, var(--space-2xl));
+  }
+
+  .practice-area:nth-child(even) {
+    padding-left: clamp(var(--space-lg), 4vw, var(--space-2xl));
+    border-left: 0.0625rem solid
+      color-mix(in srgb, var(--color-primary) 14%, transparent);
+  }
+
+  .practice-area {
+    display: grid;
+    grid-row: span 3;
+    grid-template-rows: subgrid;
+    padding-block: clamp(
+      var(--space-xl),
+      4vw,
+      calc(var(--space-xl) + var(--space-xs))
+    );
+  }
+}
+
+@include breakpoints.from(desktop) {
+  .practice-areas__header {
+    grid-template-columns: minmax(0, 1fr) minmax(24rem, 1fr);
+  }
+
+  .practice-areas__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .practice-area__title {
+    font-size: clamp(1.25rem, 1.76vw, 1.5rem);
+  }
+
+  .practice-area:nth-child(n) {
+    padding-inline: clamp(var(--space-lg), 3vw, var(--space-2xl));
+    border-left: 0.0625rem solid
+      color-mix(in srgb, var(--color-primary) 14%, transparent);
+  }
+
+  .practice-area:nth-child(3n + 1) {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .practice-area:nth-child(3n) {
+    padding-right: 0;
+  }
+}
+
+.practice-area__link {
+  display: flex;
+  width: fit-content;
+  margin-top: var(--space-md);
+  color: color-mix(
+    in srgb,
+    var(--color-accent) 58%,
+    var(--color-primary)
+  );
+}

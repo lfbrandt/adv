@@ -1,0 +1,48 @@
+:root {
+  // Paleta institucional
+  --color-primary: #25364b;
+  --color-accent: #b4a056;
+  --color-accent-on-light: color-mix(
+    in srgb,
+    var(--color-primary) 50%,
+    var(--color-accent)
+  );
+  --color-neutral: #767b83;
+  --color-light: #d6dbd8;
+  --color-white: #ffffff;
+  --color-black: #111111;
+  --color-text: var(--color-primary);
+  --color-background: var(--color-white);
+
+  // Tipografia: pronta para receber os webfonts licenciados da marca.
+  --font-primary: "BW Gradual", "Helvetica Neue", Arial, sans-serif;
+  --font-secondary: "Arsenal", "Helvetica Neue", Arial, sans-serif;
+
+  // Layout e espaçamento
+  --container-max: 80rem;
+  --container-gutter: 1.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4.5rem;
+
+  // Acabamento e movimento
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+  --transition-fast: 180ms ease-out;
+}
+
+@media (min-width: 48rem) {
+  :root {
+    --container-gutter: 2rem;
+  }
+}
+
+@media (min-width: 80rem) {
+  :root {
+    --container-gutter: 2.5rem;
+  }
+}

@@ -1,0 +1,111 @@
+@use "../abstracts/breakpoints";
+
+.profile-biography__copy {
+  display: grid;
+  max-width: 47rem;
+  gap: var(--space-lg);
+  color: color-mix(in srgb, var(--color-primary) 84%, var(--color-neutral));
+  font-family: var(--font-secondary);
+  font-size: clamp(1rem, 2.8vw, 1.125rem);
+  line-height: 1.75;
+}
+
+.profile-education__list {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.profile-education__list li {
+  display: grid;
+  gap: var(--space-md);
+  padding-block: var(--space-lg);
+  border-top: 0.0625rem solid
+    color-mix(in srgb, var(--color-primary) 18%, transparent);
+}
+
+.profile-education__year {
+  color: var(--color-accent-on-light);
+  font-family: var(--font-secondary);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  line-height: 1.6;
+}
+
+.profile-education__list li > p:last-child {
+  max-width: 50rem;
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.profile-experience__list {
+  display: grid;
+  max-width: 48rem;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.profile-experience__list li {
+  position: relative;
+  padding: var(--space-lg) 0 var(--space-lg) var(--space-xl);
+  border-top: 0.0625rem solid
+    color-mix(in srgb, var(--color-primary) 16%, transparent);
+  color: color-mix(in srgb, var(--color-primary) 84%, var(--color-neutral));
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.profile-experience__list li::before {
+  position: absolute;
+  top: 2rem;
+  left: 0;
+  width: 0.5rem;
+  height: 0.0625rem;
+  background-color: var(--color-accent);
+  content: "";
+}
+
+.profile-areas__grid {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+.profile-areas .internal-section__eyebrow {
+  color: var(--color-accent);
+}
+
+.profile-areas__list {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.profile-areas__list li {
+  padding-block: var(--space-md);
+  border-top: 0.0625rem solid
+    color-mix(in srgb, var(--color-light) 20%, transparent);
+  color: color-mix(in srgb, var(--color-light) 94%, var(--color-white));
+  font-family: var(--font-secondary);
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  line-height: 1.5;
+}
+
+@include breakpoints.from(tablet) {
+  .profile-education__list li {
+    grid-template-columns: 6rem minmax(0, 1fr);
+    gap: var(--space-xl);
+    padding-block: var(--space-xl);
+  }
+
+  .profile-areas__grid {
+    grid-template-columns: minmax(13rem, 0.72fr) minmax(0, 1.28fr);
+    gap: clamp(var(--space-2xl), 7vw, 6rem);
+  }
+}

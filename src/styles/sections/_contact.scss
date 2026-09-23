@@ -1,0 +1,132 @@
+@use "../abstracts/breakpoints";
+
+.contact-section {
+  border-top: 0.0625rem solid
+    color-mix(in srgb, var(--color-primary) 12%, transparent);
+  background-color: var(--color-white);
+  color: var(--color-primary);
+}
+
+.contact-section__container {
+  display: grid;
+  gap: clamp(var(--space-2xl), 7vw, 6rem);
+  padding-block: clamp(5rem, 9vw, 8rem);
+}
+
+.contact-section__title {
+  max-width: 12ch;
+  margin-top: var(--space-lg);
+  font-size: clamp(2.625rem, 9vw, 4.5rem);
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+}
+
+.contact-section__content {
+  min-width: 0;
+}
+
+.contact-section__introduction {
+  max-width: 38rem;
+  color: color-mix(
+    in srgb,
+    var(--color-primary) 86%,
+    var(--color-neutral)
+  );
+  font-family: var(--font-secondary);
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  line-height: 1.75;
+}
+
+.contact-section__details {
+  margin-top: clamp(var(--space-xl), 5vw, var(--space-2xl));
+  border-top: 0.0625rem solid
+    color-mix(in srgb, var(--color-primary) 22%, transparent);
+  font-style: normal;
+}
+
+.contact-section__detail {
+  display: grid;
+  gap: var(--space-xs);
+  padding-block: var(--space-lg);
+  border-bottom: 0.0625rem solid
+    color-mix(in srgb, var(--color-primary) 16%, transparent);
+}
+
+.contact-section__detail span {
+  color: color-mix(
+    in srgb,
+    var(--color-primary) 52%,
+    var(--color-accent)
+  );
+  font-family: var(--font-secondary);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.contact-section__detail a {
+  width: fit-content;
+  max-width: 100%;
+  color: var(--color-primary);
+  font-family: var(--font-secondary);
+  font-size: clamp(1.125rem, 3.5vw, 1.5rem);
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+  text-decoration-color: color-mix(
+    in srgb,
+    var(--color-accent) 72%,
+    transparent
+  );
+  text-decoration-thickness: 0.0625rem;
+  transition:
+    color var(--transition-fast),
+    text-decoration-color var(--transition-fast);
+}
+
+.contact-section__content .button {
+  margin-top: var(--space-xl);
+}
+
+.contact-section__detail a:active {
+  color: var(--color-accent-on-light);
+}
+
+@media (hover: hover) {
+  .contact-section__detail a:hover {
+    color: color-mix(
+      in srgb,
+      var(--color-primary) 68%,
+      var(--color-accent)
+    );
+    text-decoration-color: currentColor;
+  }
+}
+
+@include breakpoints.from(tablet) {
+  .contact-section__detail {
+    grid-template-columns: 6rem minmax(0, 1fr);
+    gap: var(--space-lg);
+    align-items: baseline;
+  }
+}
+
+@include breakpoints.from(desktop) {
+  .contact-section__container {
+    grid-template-columns: minmax(0, 1.08fr) minmax(24rem, 0.92fr);
+    gap: clamp(var(--space-2xl), 5vw, var(--space-3xl));
+    align-items: start;
+    padding-bottom: clamp(4.25rem, 7.25vw, 6.5rem);
+  }
+
+  .contact-section__title {
+    max-width: 16ch;
+    font-size: clamp(3.5rem, 5.3vw, 4.5rem);
+    line-height: 1;
+  }
+
+  .contact-section__content {
+    padding-top: calc(var(--space-lg) + 1.05rem);
+  }
+}

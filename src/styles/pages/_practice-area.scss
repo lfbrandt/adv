@@ -1,0 +1,89 @@
+@use "../abstracts/breakpoints";
+
+.area-services__list {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  counter-reset: services;
+  list-style: none;
+}
+
+.area-services__list li {
+  display: grid;
+  grid-template-columns: 2.75rem minmax(0, 1fr);
+  gap: 0 var(--space-md);
+  padding-block: var(--space-xl);
+  border-top: 0.0625rem solid
+    color-mix(in srgb, var(--color-primary) 18%, transparent);
+  counter-increment: services;
+}
+
+.area-services__list li::before {
+  grid-row: 1 / span 2;
+  color: var(--color-accent-on-light);
+  font-family: var(--font-secondary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1.6;
+  content: counter(services, decimal-leading-zero);
+}
+
+.area-services__list h3 {
+  max-width: 28rem;
+  font-size: clamp(1.25rem, 4.8vw, 1.625rem);
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.area-services__list p {
+  max-width: 34rem;
+  margin-top: var(--space-sm);
+  color: color-mix(in srgb, var(--color-primary) 74%, var(--color-neutral));
+  font-family: var(--font-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+
+.area-audience__copy {
+  display: grid;
+  max-width: 47rem;
+  gap: var(--space-lg);
+  color: color-mix(in srgb, var(--color-primary) 82%, var(--color-neutral));
+  font-family: var(--font-secondary);
+  font-size: clamp(1rem, 2.8vw, 1.125rem);
+  line-height: 1.75;
+}
+
+@include breakpoints.from(tablet) {
+  .area-services__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: clamp(var(--space-xl), 6vw, 5rem);
+  }
+
+  .area-services__list li {
+    min-height: 12rem;
+    align-content: start;
+  }
+}
+
+@include breakpoints.from(desktop) {
+  .area-services__list {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    column-gap: clamp(var(--space-xl), 4vw, var(--space-3xl));
+  }
+
+  .area-services__list li {
+    grid-column: span 2;
+    min-height: 13.5rem;
+    padding-block: var(--space-xl) var(--space-2xl);
+  }
+
+  .area-services__list[data-count="5"] li:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+
+  .area-services__list[data-count="5"] li:nth-child(5) {
+    grid-column: 4 / span 2;
+  }
+}
